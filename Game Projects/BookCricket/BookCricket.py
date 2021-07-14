@@ -50,6 +50,8 @@ def BookCricket(overs,players,T,team):
                 print(" Total Score = ",total," /",Wickets ,"  ", balls,"Balls" )
                 TwoTeams.append(total+100)
                 print(TwoTeams)
+                print(i+1,"nd Innings Finished")
+                print("###########################################################")
                 if team==1:
                     TwoTeams.reverse()
                 return TwoTeams
