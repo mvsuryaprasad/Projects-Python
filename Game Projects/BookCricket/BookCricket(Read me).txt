@@ -1,0 +1,32 @@
+Hello!
+This is the readme for "BookCricket.py"
+
+#######################################################################################################################################
+
+
+Firstly I have imported Random 
+
+After that taken inputs from the users and name the inputs in variables say overs and Players
+
+for the toss , I use the variable T and to get the toss used function called random.randint
+              !! Here T=1 then Player 1 wins Toss // if T=2 then player 2 wins the toss!!
+              
+After that i call the function Toss giving T as parameter for further like choosing batting or fielding by toss won team
+
+Then tht i call the BookCricket function giving parametes -->overs,players,T and team
+             1)here in the else Block i use while loop giving condition balls should be
+             less than the overs*6 and wickets must me less than players-1 and make this condition
+             for both teams
+             2)for runs(of individual player) used random.randint, if he gets 0 means its out so wicket+1
+             otherwise add it to total
+             3)for team total score i used varialbe total and adding runs for each iteration
+             4)After the first loop of for completed appended the score in Twoteams list
+             5)After two iterations of for complete I return the twoteams list
+
+Now using max to the list and using that max as parameter for index function in list we can find which team won
+
+
+Thats it
+ 
+ 
+ ##########################################################################################################################################
