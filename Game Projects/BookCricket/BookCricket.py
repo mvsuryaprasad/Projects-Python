@@ -81,7 +81,8 @@ elif d=='1f' or d=='2b':
     team=2
 Winner=BookCricket(overs,players,T,team)
 k=Winner.index(max(Winner))+1
-print("Player ",k," Wins the Game")
+print("************************Congratulations*********************************")
+print("                  Player ",k," Won the Game                             ")
 
     
 
