@@ -3,13 +3,13 @@ import random
 
 overs=int(input("Choose No of Overs:"))
 players=int(input("Choose No of Players:"))
+print('\n',"Toss == 1  ----> player 1 won the toss",'\n',
+      "Toss == 2  ----> player 2 won the toss")
 print('\n')
-print("Toss [if Toss=1--> player 1 won the Toss // if Toss=2--> player 2 1on the toss]" )
-print('\n')
-print("Click Enter to roll the Toss")
-input()
 T=random.randint(1,2)
-print(T)
+print(input("Click Enter to roll the Toss:"),T)
+
+
 
 
 
@@ -19,46 +19,58 @@ def Toss(T):
     d=input()
     if d=='f' or d=='F':
         d='f'
+        print("###########################################################")
         print("player ",T," Chooses to Field First")
+        print("###########################################################")
     elif d=='b'or d=='B':
         d='b'
-        print("player ",T," Chooses to Bat First")
-    else:
-        return 0
+        print("###########################################################",'\n')
+        print("player ",T," Chooses to Bat First",'\n')
+        print("###########################################################",'\n')
     return (str(T)+d)
 
 
 
 def BookCricket(overs,players,T,team):
     TwoTeams=[]
-    if T==0:
-        return 0
-    else:
-        for i in range(0,2,1):
-            print('\n',"Team ",team,' is Batting')
-            (Wickets,balls,total)=(0,1,0)
-            while balls<=overs*6 and Wickets<players-1:
-                print('\n',"Click Enter to Bat :")
-                input()
-                runs=random.randint(0,6)
-                if runs==0:
-                    w=["LBW","Bowled","Stumped out","Run Out"]
-                    print(random.choices(w))
-                    Wickets+=1
-                total+=runs
+    for i in range(0,2,1):
+        print("Team ",team,' is Batting')
+        (Wickets,balls,total)=(0,1,0)
+        while balls<=overs*6 and Wickets<players-1:
+            print("\n")
+            input("Click Enter to Bat :")
+            runs=random.randint(0,6)
+            if runs==0:
+                w=["LBW","Bowled","Stumped out","Run Out"]
+                print(random.choices(w))
+                Wickets+=1
+            total+=runs
+            if i==1 and total>=TwoTeams[0]:
                 print("scored ",runs,"Runs")
                 print(" Total Score = ",total," /",Wickets ,"  ", balls,"Balls" )
-                balls+=1
-            TwoTeams.append(total)
-            print('\n')
+                TwoTeams.append(total+100)
+                print(TwoTeams)
+                if team==1:
+                    TwoTeams.reverse()
+                return TwoTeams
+            print("scored ",runs,"Runs")
+            print(" Total Score = ",total," /",Wickets ,"  ", balls,"Balls" )
+            balls+=1
+        TwoTeams.append(total)
+        print('\n')
+        if i==0:
             print(i+1,"st Innings Finished")
-            if team==1:
-                team=2
-            else:
-                team=1
-        if team==2:
-            TwoTeams.reverse()
-        return TwoTeams
+            print("###########################################################")
+        else:
+            print(i+1,"nd Innings Finished")
+            print("###########################################################")
+        if team==1:
+            team=2
+        else:
+            team=1
+    if team==2:
+        TwoTeams.reverse()
+    return TwoTeams
 
         
 
@@ -68,11 +80,8 @@ if d=='1b'or d=='2f':
 elif d=='1f' or d=='2b':
     team=2
 Winner=BookCricket(overs,players,T,team)
-if Winner==0:
-    print("invalid Literal")
-else:
-    k=Winner.index(max(Winner))+1
-    print("Player ",k," Wins the Game","buy",max(Winner)-min(Winner),"Runs")
+k=Winner.index(max(Winner))+1
+print("Player ",k," Wins the Game")
 
     
 
